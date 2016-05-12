@@ -1,0 +1,30 @@
+body 
+{
+  font-family: Georgia, "Times New Roman",
+        Times, serif;
+  background-color:#F0E68C; 
+}
+
+h1 
+{
+  text-align:center;
+  font-family:showcard gothic;
+  color:black;
+  background-color:white;
+}
+
+a:link 
+{
+  color:blue 
+}
+
+p
+{
+  text-align:center;
+}
+
+img 
+{
+  width: 218px;
+  height: auto;
+}

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+
+	<!--
+		Hello random person reading the source code!
+
+		Sorry, but I'm not really the type of person that writes a lot of comments.
+		Er...so have fun I guess.
+
+		Feel free to ask me any questions if you wanna learn anything.
+			
+		~ SumRndmDde
+	-->
+
+	<script>
+
+		function changeCollision() {
+
+			var collision = String(document.getElementById('collisiontype').value);
+
+			if(collision.trim().toLowerCase() === 'rect') {
+				document.getElementById('Collision').innerHTML = '<br><font size="5" style="text-decoration: underline">Collision:</font><br><br>Use this to customize the collision of the attack.<br><br>Collision Type:<br><select id="collisiontype" onchange="changeCollision()"><option value="circle">Circle</option><option value="rect" selected>Rectangle</option></select><br><br>Width:<br>The width of the collision box.<br><input type="tel" onchange="getResults()" id="width" name="width" value="10"><br><br>Height:<br>The height of the collision box.<br><input type="tel" onchange="getResults()" id="height" name="height" value="10"><br><br><br>';
+			}
+
+			if(collision.trim().toLowerCase() === 'circle') {
+				document.getElementById('Collision').innerHTML = '<br><font size="5" style="text-decoration: underline">Collision:</font><br><br>Use this to customize the collision of the attack.<br><br>Collision Type:<br><select id="collisiontype" onchange="changeCollision()"><option value="circle" selected>Circle</option><option value="rect">Rectangle</option></select><br><br>Radius:<br>The radius of the collision circle.<br><input type="tel" onchange="getResults()" id="radius" name="radius" value="10"><br><br><br>';
+			}
+
+			getResults();
+		}
+
+		function getResults() {
+
+			var result = "<UTB Attack 1>\n";
+
+			result += "Initial X: " + String(document.getElementById('initx').value) + "\n";
+			result += "Initial Y: " + String(document.getElementById('inity').value) + "\n";
+
+			var setx = String(document.getElementById('setx').value);
+			if(setx.trim() !== "") {
+				result += "Set X: " + String(document.getElementById('setx').value) + "\n";
+			}
+			var sety = String(document.getElementById('sety').value);
+			if(sety.trim() !== "") {
+				result += "Set Y: " + String(document.getElementById('sety').value) + "\n";
+			}
+
+			var xc = (setx.trim() === "");
+			var yc = (sety.trim() === "");
+
+			if(xc) result += "Static Speed X: " + String(document.getElementById('statx').value) + "\n";
+			if(yc) result += "Static Speed Y: " + String(document.getElementById('staty').value) + "\n";
+			if(xc) result += "Dynamic Speed X: " + String(document.getElementById('dynax').value) + "\n";
+			if(yc) result += "Dynamic Speed Y: " + String(document.getElementById('dynay').value) + "\n";
+
+			result += "Collision Type: " + String(document.getElementById('collisiontype').value) + "\n";
+			var col = String(document.getElementById('collisiontype').value);
+			if(col.trim().toLowerCase() === 'rect') {
+				result += "Width: " + String(document.getElementById('width').value) + "\n";
+				result += "Height: " + String(document.getElementById('height').value) + "\n";
+			} else {
+				result += "Radius: " + String(document.getElementById('radius').value) + "\n";
+			}
+
+			var image = String(document.getElementById('image').value);
+			if(image.trim() !== "") {
+				result += "Image: " + String(document.getElementById('image').value) + "\n";
+			} else {
+				result += "Color: " + String(document.getElementById('color').value) + "\n";
+			}
+			result += "Spawn Rate: " + String(document.getElementById('rate').value) + "\n";
+			result += "Spawn Delay: " + String(document.getElementById('delay').value) + "\n";
+
+			var code = String(document.getElementById('DirectCode').value);
+			if(code.trim().length > 0) {
+				result += "<Direct Code>\n";
+				result += code + "\n";
+				result += "</Direct Code>\n";
+			}
+
+			result += "</UTB Attack 1>"
+
+			document.getElementById('Results').value = String(result);
+		}
+	</script>
+
+	<head>
+		<title>Undertale Attack Creator</title>
+		<link rel="stylesheet" href="desktop.css" media="screen" />
+		<link rel="stylesheet" href="mobile.css" media="only screen and (max-device width:480px)"/>
+		<meta name="viewport" content="width=320,user-scalable=false" />
+	</head>
+
+	<body>
+
+		<p>
+			<img src="MVLogo.png" alt="RPG Maker MV" width = 400px height = auto>
+		</p>
+
+		<p>
+			<img src="SumRndmDdeLogo3.png" alt="SumRndmDde" width = 400px height = auto>
+		</p>
+
+		<h1>RPG Maker<br>Undertale Attack Creator</h1>
+		<h1>Version: 1.00</h1>
+		<p style="background-color:white;">
+			<br>
+			Hello!
+			<br>
+			This is a page that can be used to easily create<br>
+			Undertale attacks for your RPG Maker MV game.
+			<br>
+			<br>
+			Before you do anything, be sure to download my <a href="http://forums.rpgmakerweb.com/index.php?/topic/61546-undertale-battle-system-alpha-140/"><br>
+			Undertale Battle System Plugin</a> for RPG Maker MV<br>
+			to add the Undertale Battle System to your game.
+			<br>
+			<br>
+			After doing that, you can use this to help with creating the<br>
+			attacks instead of being forced to use the awkward noteboxes.
+			<br>
+			<br>
+			Please enjoy!
+			<br>
+			- SumRndmDde
+			<br>
+			<br>
+			<a href="http://www.youtube.com/SumRndmDde">SumRndmDde's YouTube Channel</a>
+			<br>
+			<br>
+			<a href="http://www.patreon.com/SumRndmDde">SumRndmDde's Patreon</a>
+			<br>
+			<br>
+		</p>
+
+		
+		<p id="Initial" style="background-color:#F5A9A9;">
+			<br>
+			<font size="5" style="text-decoration: underline">Initial Position:</font>
+			<br>
+			<br>
+			Use these to set the initial position of the attack.<br>
+			Remember! The coordinates (0, 0) are in the top-left.<br>
+			As X gets bigger, it goes from right to left.<br>
+			As Y gets bigger, it goes from up to down.<br>
+			<br>
+			<br>
+			Initial X:
+			<br>
+			<input type="tel" onchange="getResults()" id="initx" name="initx" value="0"><br>
+			<br>
+			Initial Y:
+			<br>
+			<input type="tel" onchange="getResults()" id="inity" name="inity" value="0"><br>
+			<br>
+			<br>
+		</p>
+		
+		<p id="Movement" style="background-color:#F7BE81;">
+			<br>
+			<font size="5" style="text-decoration: underline">Movement:</font>
+			<br>
+			<br>
+			Use this to set the movement of the attack.<br>
+			All of these are JavaScript evaluations.<br>
+			f = number of frames the attack has existed for<br>
+			s = number of seconds the attack has existed for<br>
+			x = x position of the attack<br>
+			y = y position of the attack<br>
+			<br>
+			Static Speed X:<br>
+			A one-time evaluation that is added to the X every frame.<br>
+			<input type="tel" onchange="getResults()" id="statx" name="statx" value="1"><br>
+			<br>
+			Static Speed Y:<br>
+			A one-time evaluation that is added to the Y every frame.<br>
+			<input type="tel" onchange="getResults()" id="staty" name="staty" value="1"><br>
+			<br>
+			Dynamic Speed X:<br>
+			An evaluation done every frame that is added to the X.<br>
+			<input type="tel" onchange="getResults()" id="dynax" name="dynax" value="0"><br>
+			<br>
+			Dynamic Speed Y:<br>
+			An evaluation done every frame that is added to the Y.<br>
+			<input type="tel" onchange="getResults()" id="dynay" name="dynay" value="0"><br>
+			<br>
+			Set X:<br>
+			Sets the X to this value every frame. Overrides all X speeds.<br>
+			<input type="tel" onchange="getResults()" id="setx" name="setx" value=""><br>
+			<br>
+			Set Y:<br>
+			Sets the Y to this value every frame. Overrides all Y speeds.<br>
+			<input type="tel" onchange="getResults()" id="sety" name="sety" value=""><br>
+			<br>
+			<br>
+		</p>
+		<p id="Collision" style="background-color:#F3F781;">
+			<br>
+			<font size="5" style="text-decoration: underline">Collision:</font>
+			<br>
+			<br>
+			Use this to customize the collision of the attack.<br>
+			<br>
+			Collision Type:<br>
+			<select id="collisiontype" onchange='changeCollision()'>
+				<option value="circle">Circle</option>
+				<option value="rect" selected>Rectangle</option>
+			</select><br>
+			<br>
+			Width:<br>
+			The width of the collision box.<br>
+			<input type="tel" onchange="getResults()" id="width" name="width" value="10"><br>
+			<br>
+			Height:<br>
+			The height of the collision box.<br>
+			<input type="tel" onchange="getResults()" id="height" name="height" value="10"><br>
+			<br>
+			<br>
+		</p>
+		<p id="Image" style="background-color:#9FF781;">
+			<br>
+			<font size="5" style="text-decoration: underline">Image:</font>
+			<br>
+			<br>
+			Use this to customize how the attacks look.<br>
+			<br>
+			<br>
+			Image:<br>
+			The image file name of the attack.<br>
+			(Stored in /img/SumRndmDde/utb)<br>
+			<input type="tel" onchange="getResults()" id="image" name="image" value=""><br>
+			<br>
+			Color:<br>
+			The color of the attack is an image is not used.<br>
+			Input "random" for a random color.<br>
+			<input type="tel" onchange="getResults()" id="color" name="color" value="random"><br>
+			<br>
+			<br>
+		</p>
+		<p id="Spawn" style="background-color:#81F7BE;">
+			<br>
+			<font size="5" style="text-decoration: underline">Spawning:</font>
+			<br>
+			<br>
+			Use this to customize the spawn rate of the attacks.<br>
+			<br>
+			<br>
+			Spawn Rate:<br>
+			The interval in terms of frames that the attack is created.<br>
+			<input type="tel" onchange="getResults()" id="rate" name="rate" value="100"><br>
+			<br>
+			Spawn Delay:<br>
+			A delay in frames before the attack starts spawning.<br>
+			<input type="tel" onchange="getResults()" id="delay" name="delay" value="0"><br>
+			<br>
+			<br>
+		</p>
+		<p id="DirectCodeHolder" style="background-color:#8181F7;">
+			<br>
+			<font size="5" style="text-decoration: underline">Direct Code:</font>
+			<br>
+			<br>
+			Use this to customize JavaScript code that is called every frame.<br>
+			<br>
+			<br>
+			<font size="3" style="text-decoration: underline">Avaliable Variables:</font><br>
+			this.x  -  X Position<br>
+			this.y  -  Y Position<br>
+			this.width  -  Width<br>
+			this.height  -  Height<br>
+			this.radius  -  Radius<br>
+			this.xsspeed  -  X Static Speed<br>
+			this.ysspeed  -  Y Static Speed<br>
+			this.xdspeed  -  X Dynamic Speed<br>
+			this.ydspeed  -  Y Dynamic Speed<br>
+			<br>
+			<textarea id="DirectCode" rows="20" cols="50"></textarea>
+			<br>
+			<br>
+		</p>
+		<p id="ResultsHolder" style="background-color:#DA81F5;">
+			<br>
+			<font size="5" style="text-decoration: underline">Results:</font><br>
+			<br>
+			<button onclick="getResults()">Refresh!</button><br>
+			<br>
+			<textarea id="Results" rows="20" cols="50"></textarea>
+			<br>
+			<br>
+		</p>
+
+		<script>
+			getResults();
+		</script>
+
+		<p>
+			<br><br>
+			Changelog:<br>
+ 			<br>
+			<font size="3" style='text-decoration: underline'>[Version 1.00]</font><br>
+ 			UTB Attack Creator Created!
+ 			<br>
+		</p>
+
+		<p>
+			<br>
+			<br>
+			<br>
+			Found an error?<br>
+			Wish to request something?<br>
+			Please visit me on my YouTube Channel!<br>
+		</p>
+	</body>
+
+</html>

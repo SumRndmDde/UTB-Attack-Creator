@@ -71,6 +71,11 @@
 			result += "Spawn Rate: " + String(document.getElementById('rate').value) + "\n";
 			result += "Spawn Delay: " + String(document.getElementById('delay').value) + "\n";
 
+			var del = String(document.getElementById('delete').value);
+			if(del.trim() !== "") {
+				result += "Delete Distance: " + String(document.getElementById('delete').value) + "\n";
+			}
+
 			var code = String(document.getElementById('DirectCode').value);
 			if(code.trim().length > 0) {
 				result += "<Direct Code>\n";
@@ -102,7 +107,7 @@
 		</p>
 
 		<h1>RPG Maker<br>Undertale Attack Creator</h1>
-		<h1>Version: 1.00</h1>
+		<h1>Version: 1.01</h1>
 		<p style="background-color:white;">
 			<br>
 			Hello!
@@ -255,6 +260,11 @@
 			A delay in frames before the attack starts spawning.<br>
 			<input type="tel" onchange="getResults()" id="delay" name="delay" value="0"><br>
 			<br>
+			Delete Distance:<br>
+			(Requires UTB Beta 1.20+)<br>
+			The distance outside of the screen the attack must go to be deleted.<br>
+			<input type="tel" onchange="getResults()" id="delete" name="delete" value=""><br>
+			<br>
 			<br>
 		</p>
 		<p id="DirectCodeHolder" style="background-color:#8181F7;">
@@ -300,6 +310,9 @@
 		<p>
 			<br><br>
 			Changelog:<br>
+			<br>
+			<font size="3" style='text-decoration: underline'>[Version 1.01]</font><br>
+ 			Added "Delete Distance" Input
  			<br>
 			<font size="3" style='text-decoration: underline'>[Version 1.00]</font><br>
  			UTB Attack Creator Created!

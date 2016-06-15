@@ -36,22 +36,13 @@
 			result += "Initial X: " + String(document.getElementById('initx').value) + "\n";
 			result += "Initial Y: " + String(document.getElementById('inity').value) + "\n";
 
-			var setx = String(document.getElementById('setx').value);
-			if(setx.trim() !== "") {
-				result += "Set X: " + String(document.getElementById('setx').value) + "\n";
-			}
-			var sety = String(document.getElementById('sety').value);
-			if(sety.trim() !== "") {
-				result += "Set Y: " + String(document.getElementById('sety').value) + "\n";
-			}
-
 			var xc = (setx.trim() === "");
 			var yc = (sety.trim() === "");
 
-			if(xc) result += "Static Speed X: " + String(document.getElementById('statx').value) + "\n";
-			if(yc) result += "Static Speed Y: " + String(document.getElementById('staty').value) + "\n";
-			if(xc) result += "Dynamic Speed X: " + String(document.getElementById('dynax').value) + "\n";
-			if(yc) result += "Dynamic Speed Y: " + String(document.getElementById('dynay').value) + "\n";
+			if(xc) result += "X Speed: " + String(document.getElementById('statx').value) + "\n";
+			if(yc) result += "Y Speed: " + String(document.getElementById('staty').value) + "\n";
+			if(xc) result += "X Accel: " + String(document.getElementById('dynax').value) + "\n";
+			if(yc) result += "Y Accel: " + String(document.getElementById('dynay').value) + "\n";
 
 			result += "Collision Type: " + String(document.getElementById('collisiontype').value) + "\n";
 			var col = String(document.getElementById('collisiontype').value);
@@ -175,29 +166,21 @@
 			width = width of the battle box<br>
 			height = height of the battle box<br>
 			<br>
-			Static Speed X:<br>
+			X Speed:<br>
 			A one-time evaluation that is added to the X every frame.<br>
 			<input type="tel" onchange="getResults()" id="statx" name="statx" value="1"><br>
 			<br>
-			Static Speed Y:<br>
+			Y Speed:<br>
 			A one-time evaluation that is added to the Y every frame.<br>
 			<input type="tel" onchange="getResults()" id="staty" name="staty" value="1"><br>
 			<br>
-			Dynamic Speed X:<br>
-			An evaluation done every frame that is added to the X.<br>
+			X Acceleration:<br>
+			A one-time evaluation that is added to the X Speed every frame.<br>
 			<input type="tel" onchange="getResults()" id="dynax" name="dynax" value="0"><br>
 			<br>
-			Dynamic Speed Y:<br>
-			An evaluation done every frame that is added to the Y.<br>
+			Y Acceleration:<br>
+			A one-time evaluation that is added to the Y Speed every frame.<br>
 			<input type="tel" onchange="getResults()" id="dynay" name="dynay" value="0"><br>
-			<br>
-			Set X:<br>
-			Sets the X to this value every frame. Overrides all X speeds.<br>
-			<input type="tel" onchange="getResults()" id="setx" name="setx" value=""><br>
-			<br>
-			Set Y:<br>
-			Sets the Y to this value every frame. Overrides all Y speeds.<br>
-			<input type="tel" onchange="getResults()" id="sety" name="sety" value=""><br>
 			<br>
 			<br>
 		</p>
@@ -310,6 +293,10 @@
 		<p>
 			<br><br>
 			Changelog:<br>
+			<br>
+			<font size="3" style='text-decoration: underline'>[Version 1.02]</font><br>
+			Added Speed and Acceleration
+ 			Removed Static Speed, Dynamic Speed, and Set
 			<br>
 			<font size="3" style='text-decoration: underline'>[Version 1.01]</font><br>
  			Added "Delete Distance" Input

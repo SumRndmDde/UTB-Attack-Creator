@@ -36,13 +36,10 @@
 			result += "Initial X: " + String(document.getElementById('initx').value) + "\n";
 			result += "Initial Y: " + String(document.getElementById('inity').value) + "\n";
 
-			var xc = (setx.trim() === "");
-			var yc = (sety.trim() === "");
-
-			if(xc) result += "X Speed: " + String(document.getElementById('statx').value) + "\n";
-			if(yc) result += "Y Speed: " + String(document.getElementById('staty').value) + "\n";
-			if(xc) result += "X Accel: " + String(document.getElementById('dynax').value) + "\n";
-			if(yc) result += "Y Accel: " + String(document.getElementById('dynay').value) + "\n";
+			result += "X Speed: " + String(document.getElementById('statx').value) + "\n";
+			result += "Y Speed: " + String(document.getElementById('staty').value) + "\n";
+			result += "X Accel: " + String(document.getElementById('dynax').value) + "\n";
+			result += "Y Accel: " + String(document.getElementById('dynay').value) + "\n";
 
 			result += "Collision Type: " + String(document.getElementById('collisiontype').value) + "\n";
 			var col = String(document.getElementById('collisiontype').value);
@@ -136,18 +133,23 @@
 			<br>
 			<br>
 			Use these to set the initial position of the attack.<br>
-			Remember! The coordinates (0, 0) are in the top-left.<br>
+			Remember! The coordinates (0, 0) are in the top-left of the screen.<br>
 			As X gets bigger, it goes from right to left.<br>
 			As Y gets bigger, it goes from up to down.<br>
+			<br>
+			this.x is the left-side of the battle box.<br>
+			this.y is the top of the battle box.<br>
+			this.width is the width of the battle box.<br>
+			this.height is the height of the battle box.<br>
 			<br>
 			<br>
 			Initial X:
 			<br>
-			<input type="tel" onchange="getResults()" id="initx" name="initx" value="0"><br>
+			<input style="width: 220px;" onchange="getResults()" id="initx" name="initx" value="this.x"><br>
 			<br>
 			Initial Y:
 			<br>
-			<input type="tel" onchange="getResults()" id="inity" name="inity" value="0"><br>
+			<input style="width: 220px;" onchange="getResults()" id="inity" name="inity" value="this.y + Math.randomInt(this.width)"><br>
 			<br>
 			<br>
 		</p>
@@ -168,19 +170,19 @@
 			<br>
 			X Speed:<br>
 			A one-time evaluation that is added to the X every frame.<br>
-			<input type="tel" onchange="getResults()" id="statx" name="statx" value="1"><br>
+			<input style="width: 220px;" onchange="getResults()" id="statx" name="statx" value="0"><br>
 			<br>
 			Y Speed:<br>
 			A one-time evaluation that is added to the Y every frame.<br>
-			<input type="tel" onchange="getResults()" id="staty" name="staty" value="1"><br>
+			<input style="width: 220px;" onchange="getResults()" id="staty" name="staty" value="1"><br>
 			<br>
 			X Acceleration:<br>
 			A one-time evaluation that is added to the X Speed every frame.<br>
-			<input type="tel" onchange="getResults()" id="dynax" name="dynax" value="0"><br>
+			<input style="width: 220px;" onchange="getResults()" id="dynax" name="dynax" value="0"><br>
 			<br>
 			Y Acceleration:<br>
 			A one-time evaluation that is added to the Y Speed every frame.<br>
-			<input type="tel" onchange="getResults()" id="dynay" name="dynay" value="0"><br>
+			<input style="width: 220px;" onchange="getResults()" id="dynay" name="dynay" value="0.01"><br>
 			<br>
 			<br>
 		</p>
@@ -199,11 +201,11 @@
 			<br>
 			Width:<br>
 			The width of the collision box.<br>
-			<input type="tel" onchange="getResults()" id="width" name="width" value="10"><br>
+			<input style="width: 220px;" onchange="getResults()" id="width" name="width" value="10"><br>
 			<br>
 			Height:<br>
 			The height of the collision box.<br>
-			<input type="tel" onchange="getResults()" id="height" name="height" value="10"><br>
+			<input style="width: 220px;" onchange="getResults()" id="height" name="height" value="10"><br>
 			<br>
 			<br>
 		</p>
@@ -218,12 +220,12 @@
 			Image:<br>
 			The image file name of the attack.<br>
 			(Stored in /img/SumRndmDde/utb)<br>
-			<input type="tel" onchange="getResults()" id="image" name="image" value=""><br>
+			<input style="width: 220px;" onchange="getResults()" id="image" name="image" value=""><br>
 			<br>
 			Color:<br>
 			The color of the attack is an image is not used.<br>
 			Input "random" for a random color.<br>
-			<input type="tel" onchange="getResults()" id="color" name="color" value="random"><br>
+			<input style="width: 220px;" onchange="getResults()" id="color" name="color" value="random"><br>
 			<br>
 			<br>
 		</p>
@@ -237,16 +239,16 @@
 			<br>
 			Spawn Rate:<br>
 			The interval in terms of frames that the attack is created.<br>
-			<input type="tel" onchange="getResults()" id="rate" name="rate" value="100"><br>
+			<input type="tel" style="width: 220px;" onchange="getResults()" id="rate" name="rate" value="100"><br>
 			<br>
 			Spawn Delay:<br>
 			A delay in frames before the attack starts spawning.<br>
-			<input type="tel" onchange="getResults()" id="delay" name="delay" value="0"><br>
+			<input type="tel" style="width: 220px;" onchange="getResults()" id="delay" name="delay" value="0"><br>
 			<br>
 			Delete Distance:<br>
 			(Requires UTB Beta 1.20+)<br>
 			The distance outside of the screen the attack must go to be deleted.<br>
-			<input type="tel" onchange="getResults()" id="delete" name="delete" value=""><br>
+			<input type="tel" style="width: 220px;" onchange="getResults()" id="delete" name="delete" value=""><br>
 			<br>
 			<br>
 		</p>
@@ -264,10 +266,10 @@
 			this.width  -  Width<br>
 			this.height  -  Height<br>
 			this.radius  -  Radius<br>
-			this.xsspeed  -  X Static Speed<br>
-			this.ysspeed  -  Y Static Speed<br>
-			this.xdspeed  -  X Dynamic Speed<br>
-			this.ydspeed  -  Y Dynamic Speed<br>
+			this.xspeed  -  X Speed<br>
+			this.yspeed  -  Y Speed<br>
+			this.xaccel  -  X Acceleration<br>
+			this.yaccel  -  Y Acceleration<br>
 			width  -  width of the battle box<br>
 			height  -  height of the battle box<br>
 			<br>
@@ -295,7 +297,7 @@
 			Changelog:<br>
 			<br>
 			<font size="3" style='text-decoration: underline'>[Version 1.02]</font><br>
-			Added Speed and Acceleration
+			Added Speed and Acceleration<br>
  			Removed Static Speed, Dynamic Speed, and Set
 			<br>
 			<font size="3" style='text-decoration: underline'>[Version 1.01]</font><br>

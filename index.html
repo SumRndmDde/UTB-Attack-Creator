@@ -137,10 +137,12 @@
 			As X gets bigger, it goes from right to left.<br>
 			As Y gets bigger, it goes from up to down.<br>
 			<br>
-			this.x is the left-side of the battle box.<br>
-			this.y is the top of the battle box.<br>
-			this.width is the width of the battle box.<br>
-			this.height is the height of the battle box.<br>
+			<b>box.left</b> is the X postition of the left-side of the battle box.<br>
+			<b>box.right</b> is the X postition of the right-side of the battle box.<br>
+			<b>box.top</b> is the Y postition of the top of the battle box.<br>
+			<b>box.bottom</b> is the Y postition of the bottom of the battle box.<br>
+			<b>box.width</b> is the width of the battle box.<br>
+			<b>box.height</b> is the height of the battle box.<br>
 			<br>
 			<br>
 			Initial X:
@@ -161,28 +163,22 @@
 			<br>
 			Use this to set the movement of the attack.<br>
 			All of these are JavaScript evaluations.<br>
-			f = number of frames the attack has existed for<br>
-			s = number of seconds the attack has existed for<br>
-			x = x position of the attack<br>
-			y = y position of the attack<br>
-			width = width of the battle box<br>
-			height = height of the battle box<br>
 			<br>
-			X Speed:<br>
-			A one-time evaluation that is added to the X every frame.<br>
-			<input style="width: 220px;" onchange="getResults()" id="statx" name="statx" value="0"><br>
+			Starting X Speed:<br>
+			The initial evaluation for the speed that is added to the X every frame.<br>
+			<input style="width: 220px;" onchange="getResults()" id="statx" name="statx" value="1"><br>
 			<br>
-			Y Speed:<br>
-			A one-time evaluation that is added to the Y every frame.<br>
-			<input style="width: 220px;" onchange="getResults()" id="staty" name="staty" value="1"><br>
+			Starting Y Speed:<br>
+			The initial evaluation for the speed that is added to the Y every frame.<br>
+			<input style="width: 220px;" onchange="getResults()" id="staty" name="staty" value="0"><br>
 			<br>
-			X Acceleration:<br>
-			A one-time evaluation that is added to the X Speed every frame.<br>
-			<input style="width: 220px;" onchange="getResults()" id="dynax" name="dynax" value="0"><br>
+			Starting X Acceleration:<br>
+			The initial evaluation for the speed that is added to the X Speed every frame.<br>
+			<input style="width: 220px;" onchange="getResults()" id="dynax" name="dynax" value="0.01"><br>
 			<br>
-			Y Acceleration:<br>
-			A one-time evaluation that is added to the Y Speed every frame.<br>
-			<input style="width: 220px;" onchange="getResults()" id="dynay" name="dynay" value="0.01"><br>
+			Starting Y Acceleration:<br>
+			The initial evaluation for the speed that is added to the Y Speed every frame.<br>
+			<input style="width: 220px;" onchange="getResults()" id="dynay" name="dynay" value="0"><br>
 			<br>
 			<br>
 		</p>
@@ -261,17 +257,25 @@
 			<br>
 			<br>
 			<font size="3" style="text-decoration: underline">Avaliable Variables:</font><br>
-			this.x  -  X Position<br>
-			this.y  -  Y Position<br>
-			this.width  -  Width<br>
-			this.height  -  Height<br>
-			this.radius  -  Radius<br>
-			this.xspeed  -  X Speed<br>
-			this.yspeed  -  Y Speed<br>
-			this.xaccel  -  X Acceleration<br>
-			this.yaccel  -  Y Acceleration<br>
-			width  -  width of the battle box<br>
-			height  -  height of the battle box<br>
+			<b>this.x</b>  -  X Position<br>
+			<b>this.y</b>  -  Y Position<br>
+			<b>this.width</b>  -  Width<br>
+			<b>this.height</b>  -  Height<br>
+			<b>this.radius</b>  -  Radius<br>
+			<b>this.xspeed</b>  -  X Speed<br>
+			<b>this.yspeed</b>  -  Y Speed<br>
+			<b>this.xaccel</b>  -  X Acceleration<br>
+			<b>this.yaccel</b>  -  Y Acceleration<br>
+			<br>
+			<b>frame</b> is the number of frames the attack has existed for<br>
+			<b>second</b> is the number of seconds the attack has existed for<br>
+			<br>
+			<b>box.left</b> is the X postition of the left-side of the battle box.<br>
+			<b>box.right</b> is the X postition of the right-side of the battle box.<br>
+			<b>box.top</b> is the Y postition of the top of the battle box.<br>
+			<b>box.bottom</b> is the Y postition of the bottom of the battle box.<br>
+			<b>box.width</b> is the width of the battle box.<br>
+			<b>box.height</b> is the height of the battle box.<br>
 			<br>
 			<textarea id="DirectCode" rows="20" cols="50"></textarea>
 			<br>
